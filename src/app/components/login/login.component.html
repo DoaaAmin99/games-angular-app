@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row mt-5 gx-0">
+        <div class="col-md-6 ">
+            <div class="reg-img">
+    
+            </div>
+        </div>
+        <div class="col-md-6 Gray-background py-4 px-3">
+            <div class="register-form text-center">
+                <img src="../../../assets/logo (1).png" class="logo" alt="" srcset="">
+                <h3 class="text-main fw-bold">Log In to GameOver</h3>
+                <div *ngIf="apiError" class="alert alert-danger">{{apiError}}</div>
+                
+                <form (ngSubmit)="handleLogin(loginForm)" [formGroup]="loginForm">
+                    
+                    
+                    <input formControlName="email" type="email" class="form-control mb-2" placeholder="Email">
+                    <div *ngIf="loginForm.get('email')?.errors && loginForm.get('email')?.touched " class="alert alert-danger">
+                        <p *ngIf="loginForm.get('email')?.getError('email')" class="m-0">Email invalid</p>
+                        <p *ngIf="loginForm.get('email')?.getError('required')" class="m-0">email is Required</p>
+                    </div>
+    
+                    <input formControlName="password" type="password" class="form-control mb-2" placeholder="password">
+                    <div *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched " class="alert alert-danger">
+                        <p *ngIf="loginForm.get('password')?.getError('pattern')" class="m-0">password must start with upperCase then from 5 to 10</p>
+                        <p *ngIf="loginForm.get('password')?.getError('required')" class="m-0">password is Required</p>
+                    </div>
+    
+    
+                    <button [disabled]="loginForm.invalid" type="submit" class="btn btn-dark text-light w-100 py-3 mt-3">
+                        <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+                        <span *ngIf="!isLoading">Login</span>
+                        </button>
+    
+                </form>
+                <hr class="text-main">
+        
+                <P class="text-muted"><a  class="text-decoration-none cursor-pointer">Forget Password?</a></P>
+                <P class="text-muted">Not a member yet ?<a href="" class="text-decoration-none" routerLink="/register"> Create Account <i class="fa-solid fa-chevron-right"></i></a></P>
+            </div>
+    
+        </div>
+    </div>
+</div>

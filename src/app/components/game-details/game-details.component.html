@@ -1,0 +1,65 @@
+<div class="BackgroundImG" [ngStyle]="{'background-image':backgroundimage,'background-repeat':'no-repeat','height':'100vh','background-size': 'cover'}">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-4">
+                <img [src]="gameDetails?.thumbnail" class="w-100 game-thmub">
+
+                <div class="buttons d-flex justify-content-between mt-4">
+                    <button class="btn btn-dark text-white">Free</button>
+                    <a [href]="gameDetails?.freetogame_profile_url" class="btn btn-info text-white w-75">PLAY NOW<i class="fas fa-sign-out-alt"></i></a>
+                    
+                </div>
+            </div>
+            <div class="col-md-8">
+                <h2 class="text-main fw-bolder">{{gameDetails?.title}}</h2>
+                <p class="text-main fw-semibold mt-3">About {{gameDetails?.title}}</p>
+                <p class="text-main fw-semibold lh-lg">{{gameDetails?.description}}</p>
+                <h3 class="text-main fw-bolder mt-4">{{gameDetails?.title}} Screenshots</h3>
+                <!-- Owl -->
+                <owl-carousel-o [options]="customOptions">
+
+                    <ng-container *ngFor="let img of gameDetails?.screenshots">
+                      <ng-template carouselSlide >
+                        <img [src]="img.image"  >
+                      </ng-template>
+                    </ng-container>
+                
+                  </owl-carousel-o>
+                <h3  class="text-main fw-bolder mt-4">Additional Information</h3>
+
+                <div class="row mt-4">
+                    <div class="col-md-4">
+                        <h5 class="text-main fw-semibold">Title</h5>
+                        <p class="text-main">{{gameDetails?.title}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="text-main fw-semibold">Developer</h5>
+                        <p class="text-main">{{gameDetails?.developer}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="text-main fw-semibold">Publisher</h5>
+                        <p class="text-main">{{gameDetails?.publisher}}</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5 class="text-main fw-semibold">Release Date</h5>
+                        <p class="text-main">{{gameDetails?.release_date}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="text-main fw-semibold">Genre</h5>
+                        <p class="text-main">{{gameDetails?.genre}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="text-main fw-semibold">Platform</h5>
+                        <p class="text-main">{{gameDetails?.platform}}</p>
+                    </div>
+                  </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+

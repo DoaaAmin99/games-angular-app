@@ -1,0 +1,6 @@
+.game-thmub{
+    transition: 0.5s;
+}
+.game-thmub:hover{
+    opacity: 0;
+}

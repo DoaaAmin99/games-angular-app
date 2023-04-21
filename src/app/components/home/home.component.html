@@ -1,0 +1,24 @@
+<div class="d-flex justify-content-center text-center align-items-center Home-heading shadow rounded-bottom ">
+    <div class="heading ">
+        <h2 class="text-main fw-bolder h1">Find & track the best <span class="text-secondry">free-to-play</span> games!</h2>
+        <p class="text-main">Track what you've played and search for what to play next! Plus get free premium loot!</p>
+        <button routerLink="/all" class="btn btn-dark text-muted">Browse Games</button>
+    </div>
+</div>
+
+<div class="container py-4 mt-3">
+    <h3 class="text-main fw-bold"><i _ngcontent-crm-c8="" class="fas fa-robot mr-2"></i>Personalized Recommendations</h3>
+    <div class="row mt-5 g-3">
+        <div class="col-lg-4 col-md-6 " *ngFor="let game of allGames.slice(0,3)">
+            <div class="content game cursor-pointer rounded-2 overflow-hidden" [routerLink]="['/gameDetails',game.id]"  >
+                <div class="image">
+                    <img [src]="game.thumbnail" class="w-100" alt="">
+                </div>
+                <div class="game-title Gray-background  p-3 d-flex justify-content-between">
+                    <h3 class="text-main fw-semibold">{{game.title}}</h3>
+                    <button class="btn bg-primary text-white btn-sm">Free</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

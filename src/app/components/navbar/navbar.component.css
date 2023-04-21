@@ -1,0 +1,13 @@
+.navbar-brand .logo{
+    width: 5rem;
+}
+@import url('https://fonts.googleapis.com/css2?family=Xanh+Mono:ital@1&display=swap');
+.navbar-brand{
+    font-family: 'Xanh Mono', monospace;
+
+}
+
+.btn-color{
+    color: var(--secondry-color);
+    border: 1px solid var(--secondry-color);
+}
